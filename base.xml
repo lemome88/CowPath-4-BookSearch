@@ -1,5 +1,4 @@
-<scxml initial="COWPATH_state" name="" version="1.0" xmlns="http://www.w3.org/2005/07/scxml" 
-			clock="true" notes="true"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<scxml initial="COWPATH_state" name="" version="1.0" xmlns="http://www.w3.org/2005/07/scxml" clock="true" notes="true"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" previewEnable="false">
 	<state id="COWPATH_state">
 
 		<initial>
