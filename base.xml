@@ -1,0 +1,24 @@
+<scxml initial="COWPATH_state" name="" version="1.0" xmlns="http://www.w3.org/2005/07/scxml" 
+			clock="true" notes="true"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<state id="COWPATH_state">
+
+		<initial>
+			<transition event="COWPATH:LOAD" cond="http://www.amazon.com/*=books*" target="http://www.amazon.com/*=books*"/>
+		</initial>
+
+		<state id="http://www.amazon.com/*=books*">
+			<transition event="COWPATH:CLICK" cond="amazon2alibris" target="http://www.alibris.co.uk/booksearch?*">
+				<script>GoTo("http://www.alibris.co.uk/booksearch").
+							  Paste("$bookIsbn").Into("//*[@id='searchBox']").
+							  Click("//*[@alt='go']");
+				</script>
+			</transition>
+			<onentry>
+				<script>Copy("//div[@id='detail-bullets'][1]//li/b[text()='ISBN-10:']/../text()").Into("$bookIsbn");</script>
+			</onentry>
+		</state>
+		<state id="http://www.alibris.co.uk/booksearch?*">
+			<transition event="COWPATH:CLICK" cond="alibris2amazon" target="http://www.amazon.com/*=books*"/>			
+		</state>
+	</state>
+</scxml>
