@@ -11,8 +11,5 @@
 				<script>Copy("//*[@id='isbn-label']/span/text()").Into("$bookIsbn");</script>
 			</onentry>
 		</state>
-		<state id="http://www.alibris.co.uk/booksearch?*">
-			<transition event="COWPATH:CLICK" cond="alibris2thebookpeople" target="http://www.thebookpeople.co.uk/webapp/wcs/stores/servlet/qs_product_tbp?productId=*"/>
-		</state>
 	</state>
 </scxml>
