@@ -1,20 +1,19 @@
-<scxml initial="COWPATH_state" name="" version="1.0" xmlns="http://www.w3.org/2005/07/scxml" 
-			clock="true" notes="true" previewEnable="false" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-	<state id="COWPATH_state">
-		<initial>
-			<transition event="COWPATH:LOAD" cond="http://www.thebookpeople.co.uk/webapp/wcs/stores/servlet/qs_product_tbp?productId=*" target="http://www.thebookpeople.co.uk/webapp/wcs/stores/servlet/qs_product_tbp?productId=*"/>
-		</initial>
-		<state id="http://www.thebookpeople.co.uk/webapp/wcs/stores/servlet/qs_product_tbp?productId=*">
-			<transition event="COWPATH:CLICK" cond="thebookpeople2alibris" target="http://www.alibris.co.uk/booksearch?*">
-				<script>GoTo("http://www.alibris.co.uk/booksearch").Paste("$bookIsbn").Into("//*[@id='searchBox']").Click("//*[@alt='go']");</script>
-			</transition>
-			<onentry>
-				<script>Copy("//*[@id='isbn-label']/span/text()").Into("$bookIsbn");</script>
-			</onentry>
-		</state>
-		<state id="http://www.alibris.co.uk/booksearch?*">
-			<transition event="COWPATH:CLICK" cond="alibris2thebookpeople" target="http://www.thebookpeople.co.uk/webapp/wcs/stores/servlet/qs_product_tbp?productId=*"/></transition>
-		</state>
+<scxml initial="COWPATH_state" name="" version="1.0" xmlns="http://www.w3.org/2005/07/scxml" clock="true" notes="true" previewEnable="false" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <state id="COWPATH_state">
+                <initial>
+                        <transition event="COWPATH:LOAD" cond="http://www.thebookpeople.co.uk/webapp/wcs/stores/servlet/qs_product_tbp?productId=*" target="http://www.thebookpeople.co.uk/webapp/wcs/stores/servlet/qs_product_tbp?productId=*"/>
+                </initial>
+                <state id="http://www.thebookpeople.co.uk/webapp/wcs/stores/servlet/qs_product_tbp?productId=*">
+                        <transition event="COWPATH:CLICK" cond="thebookpeople2alibris" target="http://www.alibris.co.uk/booksearch?*">
+                                <script>GoTo("http://www.alibris.co.uk/booksearch").Paste("$bookIsbn").Into("//*[@id='searchBox']").Click("//*[@alt='go']");</script>
+                        </transition>
+                        <onentry>
+                                <script>Copy("//*[@id='isbn-label']/span/text()").Into("$bookIsbn");</script>
+                        </onentry>
+                </state>
+                <state id="http://www.alibris.co.uk/booksearch?*">
+                        <transition event="COWPATH:CLICK" cond="alibris2thebookpeople" target="http://www.thebookpeople.co.uk/webapp/wcs/stores/servlet/qs_product_tbp?productId=*"/> 
+                </state>
 
-	</state>
+        </state>
 </scxml>
