@@ -5,8 +5,7 @@
 		</initial>
 		<state id="http://www.thebookpeople.co.uk/webapp/wcs/stores/servlet/qs_product_tbp?productId=*">
 			<transition event="COWPATH:CLICK" cond="thebookpeople2alibris" target="http://www.alibris.co.uk/booksearch?*">
-				<script>GoTo("http://www.alibris.co.uk/booksearch").Paste("$bookIsbn").Into("//*[@id='searchBox']").Click("//*[@alt='go']");
-				</script>
+				<script>GoTo("http://www.alibris.co.uk/booksearch").Paste("$bookIsbn").Into("//*[@id='searchBox']").Click("//*[@alt='go']");</script>
 			</transition>
 			<onentry>
 				<script>Copy("//*[@id='isbn-label']/span/text()").Into("$bookIsbn");</script>
